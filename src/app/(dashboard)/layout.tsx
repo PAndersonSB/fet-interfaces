@@ -1,8 +1,13 @@
 "use client";
-import Link from "next/link";
-import { useInstituicao  } from "@/app/context/InstituicaoContext";
 
-export default function DashboardLayout({ children, }: {children: React.ReactNode;}) {
+import Link from "next/link";
+import { InstituicaoProvider, useInstituicao } from "@/src/app/context/InstituicaoContext";
+
+import { DisciplinasProvider, useDisciplinas } from "@/src/app/context/DisciplinasContext";
+
+import { ProfessoresProvider, useProfessores } from "@/src/app/context/ProfessoresContext";
+
+function DashboardContent({ children }: { children: React.ReactNode }) {
   const { instituicao, setInstituicao } = useInstituicao();
 
   function editarNome() {
@@ -47,12 +52,23 @@ export default function DashboardLayout({ children, }: {children: React.ReactNod
           </span>
         </header>
 
-        {/* Página dinâmica */}
         <main className="p-6 overflow-auto">
           {children}
         </main>
 
       </div>
     </div>
+  );
+}
+
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <InstituicaoProvider>
+      <DisciplinasProvider>
+      <ProfessoresProvider>
+      <DashboardContent>{children}</DashboardContent>
+      </ProfessoresProvider>
+      </DisciplinasProvider>
+    </InstituicaoProvider>
   );
 }
