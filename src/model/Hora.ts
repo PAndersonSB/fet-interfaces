@@ -5,5 +5,6 @@ export type Hora = {
 };
 
 export type ListaHoras = {
+  numeroDeHoras: number,
   horas: Hora[];
 };
