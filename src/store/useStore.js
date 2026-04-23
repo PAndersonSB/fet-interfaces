@@ -11,8 +11,14 @@ export function useAppState() {
   comments: ""
   });
 
-  const [days, setDays] = useState([]);
-  const [hours, setHours] = useState([]);
+  const [days, setDays] = useState({
+  numeroDeDias: 0,
+  dias: []
+  });
+  const [hours, setHours] = useState({
+  numeroDeHoras: 0,
+  horas: []
+  });
 
   return {
     teachers, setTeachers,
