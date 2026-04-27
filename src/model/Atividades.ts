@@ -3,7 +3,7 @@ export type Atividade = {
 
   professor: string;
   disciplina: string;
-  estudantes: string[]; // 🔥 corrigido
+  estudantes: string[]; 
 
   duracao: number;
   duracaoTotal: number;

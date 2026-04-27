@@ -5,7 +5,7 @@ export default function SimpleList({ items, setItems, label }) {
 
   const add = () => {
     if (!value) return;
-    setItems([...items, { name: value }]);
+    setItems([...items, { nome: value }]);
     setValue("");
   };
 
@@ -23,7 +23,7 @@ export default function SimpleList({ items, setItems, label }) {
       <ul>
         {items.map((item, i) => (
           <li key={i}>
-            {item.name}
+            {item.nome}
             <button onClick={() => remove(i)}>X</button>
           </li>
         ))}

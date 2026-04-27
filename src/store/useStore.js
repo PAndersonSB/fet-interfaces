@@ -7,7 +7,7 @@ export function useAppState() {
   const [rooms, setRooms] = useState([]);
   const [activities, setActivities] = useState([]);
   const [institution, setInstitution] = useState({
-  name: "",
+  nome: "",
   comments: ""
   });
 

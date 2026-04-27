@@ -11,10 +11,25 @@ import Institution from "../pages/Institution";
 import Days from "../pages/Days";
 import Hours from "../pages/Hours";
 
+import { generateFetXML } from "../utils/fetExport";
+
 export default function Page() {
   const state = useAppState();
   const [page, setPage] = useState("teachers");
+  const handleExport = () => {
+    const xml = generateFetXML(state);
 
+    const blob = new Blob([xml], { type: "text/xml" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "timetable.fet";
+    a.click();
+
+    URL.revokeObjectURL(url);
+  };
+  
   return (
     <div style={{ padding: 20 }}>
       <input
@@ -47,6 +62,9 @@ export default function Page() {
           marginTop: 5
         }}
       />
+      <button onClick={handleExport}>
+      Exportar FET
+      </button>
 
       {/* Menu */}
       <div style={{ marginBottom: 20 }}>

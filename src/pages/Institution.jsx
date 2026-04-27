@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 export default function Institution({ state }) {
-  const [name, setName] = useState(state.institution.name);
+  const [nome, setName] = useState(state.institution.nome);
   const [comments, setComments] = useState(state.institution.comments);
 
   const save = () => {
-    state.setInstitution({ name, comments });
+    state.setInstitution({ nome, comments });
   };
 
   return (
@@ -16,7 +16,7 @@ export default function Institution({ state }) {
 
       <input
         placeholder="Nome da instituição"
-        value={name}
+        value={nome}
         onChange={e => setName(e.target.value)}
       />
 

@@ -14,21 +14,21 @@ export default function Activities({ state }) {
       <select onChange={e => setForm({ ...form, teacher: e.target.value })}>
         <option>Professor</option>
         {state.teachers.map(t => (
-          <option key={t.name}>{t.name}</option>
+          <option key={t.nome}>{t.nome}</option>
         ))}
       </select>
 
       <select onChange={e => setForm({ ...form, subject: e.target.value })}>
         <option>Disciplina</option>
         {state.subjects.map(s => (
-          <option key={s.name}>{s.name}</option>
+          <option key={s.nome}>{s.nome}</option>
         ))}
       </select>
 
       <select onChange={e => setForm({ ...form, group: e.target.value })}>
         <option>Turma</option>
         {state.students.map(s => (
-          <option key={s.name}>{s.name}</option>
+          <option key={s.nome}>{s.nome}</option>
         ))}
       </select>
 
